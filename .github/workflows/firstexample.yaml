@@ -1,0 +1,18 @@
+name: My First workflow
+on: 
+    - push
+    - workflow_run
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Welcome Message
+              run: echo "Hello world lets explore the files system"
+            - name: Show current directory contents
+              run: ls -ltra
+            - name: print the user name and id
+              run: echo ${USER} ; id
+            - name: show all file contents
+              run: for i in $(ls -1); do if [[ -f $i ]]; then cat $i; fi ; done
+
+
