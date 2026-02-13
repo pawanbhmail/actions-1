@@ -1,0 +1,17 @@
+name: Generate art
+on: 
+    push:
+        branches:
+            - main
+jobs:
+    generate_art_on_commit:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout the repo
+              run: actions/checkout@v4
+            - name: Install lib
+              run: sudo apt-get install cowsay -y
+            - name: generate the ascii art
+              run: cowsay -f dragon "I love gold, do you have any?" >> ascii_art.txt
+            - name: show the art
+              run: cat ascii_art.txt
