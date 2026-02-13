@@ -8,11 +8,13 @@ jobs:
         steps:
             - name: Welcome Message
               run: echo "Hello world lets explore the files system"
+            - name: checkout the repo
+              uses: actions/checkout@v4
             - name: Show current directory contents
               run: ls -ltra
             - name: print the user name and id
               run: echo ${USER} ; id
             - name: show all file contents
-              run: for i in $(ls -1); do if [[ -f $i ]]; then cat $i; fi ; done
+              run: for i in $(ls -1); do if [[ -f $i ]]; then echo $i;cat $i; fi ; done
 
 
